@@ -1,0 +1,63 @@
+body {
+    overflow: hidden;
+}
+
+#content {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .container {
+        background-color: #DCDCDC;
+        margin: auto;
+        width: 40%;
+        background: #fff;
+        position: relative;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+
+        .header {
+            color: red;
+            font-size: 2em;
+        }
+
+        .content {
+            input {
+                margin: auto;
+                width: 90%;
+                height: 2vh;
+                margin-bottom: 10px;
+            }
+
+            ul {
+                list-style-type: none;
+                margin: 10px auto;
+                padding: 0px 0px;
+
+                li {
+                    cursor: pointer;
+                    margin: 10px 0px;
+                    height: 30px;
+                    line-height: 30px;
+                    text-align: left;
+                    border: 1px solid #ECECEC;
+                    padding-left: 10px;
+
+                    a {
+                        float: right;
+                        padding-right: 10px;
+                    }
+                }
+
+                .done {
+                    text-decoration: line-through;
+                    color: #FFF;
+                    background-color: #964848;
+                }
+            }
+        }
+    }
+
+}
