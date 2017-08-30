@@ -1,29 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// export default class ItemTodo extends React.Component {
+export default class ItemTodo extends React.Component {
 
-//     constructor(props) {
-//         super(props);
-//     }
+    constructor(props) {
+        super(props);
+    }
 
-//     render () {
-//         let todo = this.props.todo;
-//         return (
-//             <li className={todo.completed ? 'done' : ''} onClick={this.props.handleClickItem}>
-//                 <span>{todo.name}</span>
-//                 <a>Remove</a>
-//             </li>
-//         )
-//     }
-// }
-
-const ItemTodo = ({todo, handleClickItem}) => (
-    <li className={todo.completed ? 'done' : ''} onClick={() => handleClickItem}>
-        <span>{todo.name}</span>
-        <a>Remove</a>
-    </li>
-)
-
-export default ItemTodo;
+    render () {
+        let todo = this.props.todo;
+        return (
+            <li className={todo.completed ? 'done' : ''}>
+                <div className="left">
+                    <input type="checkbox" onChange={() => this.props.handleClickItem(todo.id)} checked={todo.completed ? 'true' : ''}/>
+                </div>
+                <div className="right">
+                    <span onClick={() => this.props.handleClickItem(todo.id)}>{todo.name}</span>
+                    <a onClick={() => this.props.handleRemoveItem(todo.id)}>Remove</a>
+                </div>
+            </li>
+        )
+    }
+}
 
