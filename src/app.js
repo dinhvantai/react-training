@@ -1,7 +1,8 @@
 import React from 'react';
 import _findIndex from 'lodash/findIndex';
 import _map from 'lodash/map';
-// import ListTodos from './components/list';
+import ListTodos from './components/list';
+import Filter from './components/filter';
 
 import './app.scss';
 
@@ -19,11 +20,20 @@ export default class App extends React.Component {
                 {id: 6, name: 'Test todo 6', completed: true},
                 {id: 7, name: 'Test todo 7', completed: false}
             ],
+
+            filters: [
+                {value: 'ALL', label: 'Show All'},
+                {value: 'COMPLETED', label: 'Show Completed'},
+                {value: 'DOING', label: 'Show Doing'}
+            ],
+
             filter: 'ALL'
         }
 
         this.handleKeyDownInput = this.handleKeyDownInput.bind(this);
         this.handleClickItem = this.handleClickItem.bind(this);
+        this.handleRemoveItem = this.handleRemoveItem.bind(this);
+        this.handleFilter = this.handleFilter.bind(this);
     }
 
     handleKeyDownInput(event) {
@@ -89,31 +99,17 @@ export default class App extends React.Component {
                     </div>
                     <div className="content">
                         <input onKeyDown={this.handleKeyDownInput}/>
-                        <ul>
-                            {this.filterTodos().map(todo =>
-                                <li className={todo.completed ? 'done' : ''} key={todo.id}>
-                                    <div className="left">
-                                        <input type="checkbox" onChange={() => this.handleClickItem(todo.id)} checked={todo.completed ? 'true' : ''}/>
-                                    </div>
-                                    <div className="right">
-                                        <span onClick={() => this.handleClickItem(todo.id)}>{todo.name}</span>
-                                        <a onClick={() => this.handleRemoveItem(todo.id)}>Remove</a>
-                                    </div>
-                                </li>
-                            )}
-                        </ul>
+                        <ListTodos 
+                            todos={this.filterTodos()} 
+                            handleClickItem={this.handleClickItem}
+                            handleRemoveItem={this.handleRemoveItem}
+                        />
                         <div className="filter">
-                            <ul>
-                                <li className={this.state.filter == 'ALL' ? 'active' : ''} onClick={() => this.handleFilter('ALL')}>
-                                    Show All
-                                </li>
-                                <li className={this.state.filter == 'COMPLETED' ? 'active' : ''} onClick={() => this.handleFilter('COMPLETED')}>
-                                    Show Completed
-                                </li>
-                                <li className={this.state.filter == 'DOING' ? 'active' : ''} onClick={() => this.handleFilter('DOING')}>
-                                    Show Doing
-                                </li>
-                            </ul>
+                            <Filter 
+                                filter={this.state.filter}
+                                filters={this.state.filters}
+                                handleFilter={this.handleFilter}
+                            />
                         </div>
                     </div>
                 </div>
@@ -121,5 +117,3 @@ export default class App extends React.Component {
         )
     }
 }
-
-// <ListTodos todos={this.state.todos} handleClickItem={this.handleClickItem} />
