@@ -9,10 +9,24 @@
         background-color: #DCDCDC;
         margin: 100px auto;
         margin-top: 20px;
-        width: 40%;
+        width: 60%;
         background: #fff;
         position: relative;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+
+        .menu {
+            list-style-type: none;
+            text-align: left;
+            .item {
+                cursor: pointer;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                border: 1px solid #ECECEC;
+                width: 20%;
+                display: inline-block;
+            }
+        }
 
         .header {
             color: red;
