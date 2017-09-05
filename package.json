@@ -10,10 +10,12 @@
     "watch": "webpack -d --watch --config webpack.dev.js",
     "build": "webpack -p --config webpack.prod.js",
     "deploy": "yarn run build && gh-pages -d dist",
-    "start": "webpack-dev-server --config webpack.dev.js --open"
+    "start": "webpack-dev-server --config webpack.dev.js --open --watch-poll"
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.3",
