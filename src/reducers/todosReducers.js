@@ -1,4 +1,5 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO, MARK_TODO, MARK_ALL, CLEAR_MARKED } from '../constants/ActionTypes';
+import { ADD_TODO, DELETE_TODO, EDIT_TODO, MARK_TODO } from '../constants/ActionTypes';
+import { SHOW_ALL, SHOW_MARKED, SHOW_UNMARKED} from '../constants/TodoFilters';
 
 const initialState = [{
     name: 'Use Redux',

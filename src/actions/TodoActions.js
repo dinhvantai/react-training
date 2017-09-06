@@ -28,15 +28,3 @@ export function markTodo(id) {
         id
     };
 }
-
-export function markAll() {
-    return {
-        type: types.MARK_ALL
-    };
-}
-
-export function clearMarked() {
-    return {
-        type: types.CLEAR_MARKED
-    };
-}
